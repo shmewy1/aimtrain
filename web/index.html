@@ -2,9 +2,29 @@
 <html lang="en">
 
 <head>
+    <script>
+        // Hide the body by default to prevent content from loading until the prompt is validated
+        document.documentElement.style.display = 'none';
+
+        // Function to prompt until correct value is entered
+        (function() {
+            let x = null;
+            while (x !== "aimtrainer") {
+                x = prompt("Testing, testing, 1, 2, 3...");
+                if (x === null) {
+                    // If user cancels, stop the script and do not load the page
+                    alert("You have canceled the prompt. The page will not load.");
+                    throw new Error("User canceled the prompt."); // Stop further execution
+                }
+            }
+            // If correct input is entered, reveal the page content
+            document.documentElement.style.display = '';
+            alert("Correct! Now loading the page...");
+        })();
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Aim Trainer</title>
+    <title>testing...</title>
     <meta name="description"
         content="Open Aim Trainer is a free and open source aim trainer that allows you to improve your aim in both 2D and 3D games. Made with the Godot game engine.">
     <meta name="keywords"
